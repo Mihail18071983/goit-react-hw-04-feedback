@@ -48,13 +48,13 @@ export class App extends Component {
         <div className="feedback_wrapper">
           <p className="feedback_title">Please leave the feedback</p>
           <div className="btn_wrapper">
-            <button onClick={this.handleClickGoodBtn} className="btn">
+            <button type='button' onClick={this.handleClickGoodBtn} className="btn">
               Good
             </button>
-            <button onClick={this.handleClickNeutralBtn} className="btn">
+            <button type='button' onClick={this.handleClickNeutralBtn} className="btn">
               Neutral
             </button>
-            <button onClick={this.handleClickBadBtn} className="btn">
+            <button type='button' onClick={this.handleClickBadBtn} className="btn">
               Bad
             </button>
           </div>
