@@ -1,5 +1,6 @@
 import { Component } from 'react';
 import Statistics from 'components/Statistics/Statistics';
+import FeedbackOptions from 'components/FeedbackOptions/FeedbackOptions';
 
 export class App extends Component {
   // static defaultProps = {};
@@ -11,22 +12,28 @@ export class App extends Component {
     bad: 0,
   };
 
-  handleClickGoodBtn = () => {
-    this.setState(prevState => {
-      return { good: prevState.good + 1 };
-    });
-  };
+  // statePropNames = Object.keys(this.state);
 
-  handleClickNeutralBtn = () => {
-    this.setState(prevState => {
-      return { neutral: prevState.neutral + 1 };
-    });
-  };
+  onLeaveFeedback = e => {
+    console.log(e);
 
-  handleClickBadBtn = () => {
-    this.setState(prevState => {
-      return { bad: prevState.bad + 1 };
-    });
+    if (e.target.innerText === 'good') {
+      this.setState(prevState => {
+        return { good: prevState.good + 1 };
+      });
+    }
+
+    if (e.target.innerText === 'neutral') {
+      this.setState(prevState => {
+        return { neutral: prevState.neutral + 1 };
+      });
+    }
+
+    if (e.target.innerText === 'bad') {
+      this.setState(prevState => {
+        return { bad: prevState.bad + 1 };
+      });
+    }
   };
 
   countTotalFeedback = () => {
@@ -47,18 +54,10 @@ export class App extends Component {
       <>
         <div className="feedback_wrapper">
           <p className="feedback_title">Please leave the feedback</p>
-          <div className="btn_wrapper">
-            <button type='button' onClick={this.handleClickGoodBtn} className="btn">
-              Good
-            </button>
-            <button type='button' onClick={this.handleClickNeutralBtn} className="btn">
-              Neutral
-            </button>
-            <button type='button' onClick={this.handleClickBadBtn} className="btn">
-              Bad
-            </button>
-          </div>
-
+          <FeedbackOptions
+            options={this.statePropNames}
+            onLeaveFeedback={this.onLeaveFeedback}
+          />
           <Statistics
             good={this.state.good}
             neutral={this.state.neutral}
@@ -71,9 +70,3 @@ export class App extends Component {
     );
   }
 }
-
-// export const App = () => {
-//   return (
-//  <></>
-//   );
-// };
