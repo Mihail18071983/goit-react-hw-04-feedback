@@ -12,7 +12,7 @@ export class App extends Component {
     bad: 0,
   };
 
-  // statePropNames = Object.keys(this.state);
+  statePropNames = Object.keys(this.state);
 
   onLeaveFeedback = e => {
     console.log(e);
