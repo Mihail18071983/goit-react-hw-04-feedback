@@ -3,10 +3,41 @@ import Statistics from 'components/Statistics/Statistics';
 import FeedbackOptions from 'components/FeedbackOptions/FeedbackOptions';
 import Section from 'components/Section/Section';
 import Notification from 'components/Notification/Notification';
+import styled from 'styled-components';
+import { createGlobalStyle } from 'styled-components';
+
+const GlobalStyle = createGlobalStyle`
+ul,li {
+  margin: 0;
+  padding: 0;
+  text-decoration:none;
+  list-style:none;
+}
+p {
+  margin: 0;
+  padding:0;
+}
+a {
+  text-decoration: none;
+  font-style: normal;
+}
+
+button {
+  cursor: pointer;
+  padding: 5px 10px;
+  outline:none
+}
+`;
+
+const AppWrapperStyled = styled.div`
+  margin-left: 30px;
+`;
 
 export class App extends Component {
   // static defaultProps = {};
-  // static propTypes = {};
+  // static propTypes = {
+
+  // };
 
   state = {
     good: 0,
@@ -15,27 +46,6 @@ export class App extends Component {
   };
 
   statePropNames = Object.keys(this.state);
-
-  // onLeaveFeedback = e => {
-  //   console.log(e);
-  //   if (e.target.innerText === 'good') {
-  //     this.setState(prevState => {
-  //       return { good: prevState.good + 1 };
-  //     });
-  //   }
-
-  //   if (e.target.innerText === 'neutral') {
-  //     this.setState(prevState => {
-  //       return { neutral: prevState.neutral + 1 };
-  //     });
-  //   }
-
-  //   if (e.target.innerText === 'bad') {
-  //     this.setState(prevState => {
-  //       return { bad: prevState.bad + 1 };
-  //     });
-  //   }
-  // };
 
   onLeaveFeedback = feedback => {
     this.setState(prevState => ({
@@ -60,15 +70,17 @@ export class App extends Component {
 
   render() {
     return (
-      <>
+      <AppWrapperStyled>
+        <GlobalStyle />
         <Section title="Please leave the feedback" className="section">
           <FeedbackOptions
             options={this.statePropNames}
             onLeaveFeedback={this.onLeaveFeedback}
           />
         </Section>
-        <Section className="section">
-          {this.countTotalFeedback() !== 0 && (
+
+        {this.countTotalFeedback() !== 0 && (
+          <Section title="Statistics" className="section">
             <Statistics
               good={this.state.good}
               neutral={this.state.neutral}
@@ -76,12 +88,13 @@ export class App extends Component {
               total={this.countTotalFeedback()}
               positivePercentage={this.countPositiveFeedbackPercentage()}
             />
-          )}
-        </Section>
+          </Section>
+        )}
+
         {this.countTotalFeedback() === 0 && (
           <Notification message="There is no feedback" />
         )}
-      </>
+      </AppWrapperStyled>
     );
   }
 }
