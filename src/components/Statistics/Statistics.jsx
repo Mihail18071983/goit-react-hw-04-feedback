@@ -6,35 +6,36 @@ const StyledStats = styled.ul`
   list-style: none;
   text-decoration: none;
   margin: 0;
-  padding:0;
+  padding: 0;
 `;
 
 const StyledItem = styled.li`
-  &:not(:last-child){
+  font-size: 12px;
+  font-weight: 500;
+  &:not(:last-child) {
     margin-bottom: 5px;
-        }
+  }
 `;
-
 
 const Statistics = ({ good, neutral, bad, total, positivePercentage }) => {
   return (
     <StyledStats>
       <StyledItem>
-        Good:<span className="value">{good}</span>
+        Good:<span>{good}</span>
       </StyledItem>
       <StyledItem>
-        Neutral:<span className="value">{neutral}</span>
+        Neutral:<span>{neutral}</span>
       </StyledItem>
       <StyledItem>
-        Bad:<span className="value">{bad}</span>
+        Bad:<span>{bad}</span>
       </StyledItem>
       <StyledItem>
         Total:
-        <span className="value">{total}</span>
+        <span>{total}</span>
       </StyledItem>
       <StyledItem>
         Positive feedback:
-        <span className="value">{positivePercentage}%</span>
+        <span>{positivePercentage}%</span>
       </StyledItem>
     </StyledStats>
   );

@@ -34,10 +34,6 @@ const AppWrapperStyled = styled.div`
 `;
 
 export class App extends Component {
-  // static defaultProps = {};
-  // static propTypes = {
-
-  // };
 
   state = {
     good: 0,
