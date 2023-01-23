@@ -4,30 +4,30 @@ import FeedbackOptions from 'components/FeedbackOptions/FeedbackOptions';
 import Section from 'components/Section/Section';
 import Notification from 'components/Notification/Notification';
 import styled from 'styled-components';
-import { createGlobalStyle } from 'styled-components';
+// import { createGlobalStyle } from 'styled-components';
 
-const GlobalStyle = createGlobalStyle`
-ul,li {
-  margin: 0;
-  padding: 0;
-  text-decoration:none;
-  list-style:none;
-}
-p {
-  margin: 0;
-  padding:0;
-}
-a {
-  text-decoration: none;
-  font-style: normal;
-}
+// const GlobalStyle = createGlobalStyle`
+// ul,li {
+//   margin: 0;
+//   padding: 0;
+//   text-decoration:none;
+//   list-style:none;
+// }
+// p {
+//   margin: 0;
+//   padding:0;
+// }
+// a {
+//   text-decoration: none;
+//   font-style: normal;
+// }
 
-button {
-  cursor: pointer;
-  padding: 5px 10px;
-  outline:none
-}
-`;
+// button {
+//   cursor: pointer;
+//   padding: 5px 10px;
+//   outline:none
+// }
+// `;
 
 const AppWrapperStyled = styled.div`
   margin-left: 30px;
@@ -67,8 +67,8 @@ export class App extends Component {
   render() {
     return (
       <AppWrapperStyled>
-        <GlobalStyle />
-        <Section title="Please leave the feedback" className="section">
+        {/* <GlobalStyle /> */}
+        <Section title="Please leave the feedback">
           <FeedbackOptions
             options={this.statePropNames}
             onLeaveFeedback={this.onLeaveFeedback}
@@ -76,7 +76,7 @@ export class App extends Component {
         </Section>
 
         {this.countTotalFeedback() !== 0 && (
-          <Section title="Statistics" className="section">
+          <Section title="Statistics">
             <Statistics
               good={this.state.good}
               neutral={this.state.neutral}
