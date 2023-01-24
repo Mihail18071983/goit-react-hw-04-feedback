@@ -1,21 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
+import StyledItem from './StatItem.styled';
+import StyledStats from './Statistics.styled';
 
-const StyledStats = styled.ul`
-  list-style: none;
-  text-decoration: none;
-  margin: 0;
-  padding: 0;
-`;
-
-const StyledItem = styled.li`
-  font-size: 12px;
-  font-weight: 500;
-  &:not(:last-child) {
-    margin-bottom: 5px;
-  }
-`;
 
 const Statistics = ({ good, neutral, bad, total, positivePercentage }) => {
   return (

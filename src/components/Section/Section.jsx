@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import StyledTitle from './StyledTitle';
-import StyledContainer from './StiledContainer';
+import StyledTitle from './Title.styled';
+import StyledContainer from './Container.styled';
 
 const Section = ({ title, children }) => (
   <>
