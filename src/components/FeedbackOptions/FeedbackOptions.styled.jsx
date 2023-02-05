@@ -16,8 +16,8 @@ export const StyledBtn = styled.button`
         return '#000';
     }
   }};
-  transition: background-color 0.5s cubic-bezier(0.05, 0.97, 1, 0.08),
-    color 0.5s cubic-bezier(0.05, 0.97, 1, 0.08);
+  transition: background-color 0.25s cubic-bezier(0.05, 0.97, 1, 0.08),
+    color 0.25s cubic-bezier(0.05, 0.97, 1, 0.08);
 
   &:hover {
     background-color: blue;
